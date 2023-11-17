@@ -1,0 +1,61 @@
+{
+  "dummy": [
+    {
+      "id": "1",
+      "nickname": "Tracer",
+      "content": "Hi",
+      "createdAt": "2023.11.15",
+      "writedTo": "허윤진"
+    },
+    {
+      "id": "2",
+      "nickname": "Sombra",
+      "content": "Hi",
+      "createdAt": "2023.11.15",
+      "writedTo": "사쿠라"
+    },
+    {
+      "id": "3",
+      "nickname": "D.Va",
+      "content": "Hi",
+      "createdAt": "2023.11.15",
+      "writedTo": "김채원"
+    },
+    {
+      "id": "4",
+      "nickname": "Brigitte",
+      "content": "Hi",
+      "createdAt": "2023.11.15",
+      "writedTo": "카즈하"
+    },
+    {
+      "id": "5",
+      "nickname": "Kiriko",
+      "content": "Hi",
+      "createdAt": "2023.11.15",
+      "writedTo": "홍은채"
+    }
+  ],
+  "artist": [
+    {
+      "id": "1",
+      "name": "허윤진"
+    },
+    {
+      "id": "2",
+      "name": "사쿠라"
+    },
+    {
+      "id": "3",
+      "name": "김채원"
+    },
+    {
+      "id": "4",
+      "name": "카즈하"
+    },
+    {
+      "id": "5",
+      "name": "홍은채"
+    }
+  ]
+}
