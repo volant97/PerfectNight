@@ -13,7 +13,7 @@ const HeaderOutLine = styled.div`
   position: relative;
 
   width: 100%;
-  height: 300px;
+  height: 280px;
   border: 2px solid black;
 
   background-image: url(${LESSERAFIM2});
@@ -42,7 +42,7 @@ function Header(props) {
   const { artistData, dummyData, selected, setSelected, btnClicked, setBtnClicked, writedTo, setWritedTo } = props;
 
   return (
-    <HeaderOutLine color="green">
+    <HeaderOutLine>
       <h1>Perfect Night</h1>
       <h2>LE SSERAFIM</h2>
       <p>2023.10.27</p>

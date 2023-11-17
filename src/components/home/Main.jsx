@@ -22,19 +22,20 @@ const CreateBox = styled.form`
   gap: 20px;
 
   width: 100%;
-  height: 200px;
+  height: 180px;
   border: 2px solid black;
 `
 
 const LetterBox = styled.ul`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   gap: 20px;
 
   width: 100%;
-  height: 500px;
+  height: 100%;
+  padding: 20px 0 ;
   border: 2px solid black;
 
   .letter-card {
@@ -83,8 +84,11 @@ const LetterBox = styled.ul`
 `
 
 
+
+
+
 function Main(props) {
-  const { artistData, dummyData, selected, setSelected, btnClicked, setBtnClicked, writedTo, setWritedTo } = props;
+  const { artistData, dummyData, selected, setSelected, btnClicked, setBtnClicked, writedTo, setWritedTo, navigate } = props;
 
   const [nickname, setNickname] = useState("");
   const [content, setContent] = useState("");
@@ -98,8 +102,15 @@ function Main(props) {
     alert("내용은 100글자 이하로 작성해주세요😲")
   }
 
+
+
+  const cardClickHandler = (id) => {
+    navigate(`/letter${id}`)
+  }
+
+
   return (
-    <MainOutLine color="green">
+    <MainOutLine>
       <CreateBox
         onSubmit={event => {
           event.preventDefault();
@@ -144,7 +155,7 @@ function Main(props) {
             onChange={event => {
               setWritedTo(event.target.value)
             }}>
-            {artistData.map((item) => <option value={item.name}>{item.name}</option>)}
+            {artistData.map((item) => <option key={item.id} value={item.name}>{item.name}</option>)}
           </select>
           <button type="submit">팬레터 등록</button>
         </div>
@@ -155,7 +166,7 @@ function Main(props) {
           return selected[lett.writedTo]
         }).map(letter => {
           return (
-            <li className='letter-card' key={letter.id}>
+            <li className='letter-card' key={letter.id} onClick={() => cardClickHandler(letter.id)} >
               <div className='letter-card-left'>
                 <img src={userProfile}></img>
               </div>

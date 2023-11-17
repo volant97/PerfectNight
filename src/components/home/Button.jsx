@@ -6,22 +6,30 @@ const ButtonBox = styled.div`
     flex-direction: row;
     gap: 10px;
   `
+
 const ArtistBtn = styled.button`
     background: transparent;
-    background-color: #b6a1a6;
+    background-color: ${props => props.$boxcolor};
+    color: ${props => props.$textcolor};
     width: 100px;
     height: 40px;
-    border: 1px solid black;
+    border: 1px solid rgb(256, 256, 256, 0.7);
+    box-shadow: 0px 2px 10px #505050;
     border-radius: 20px;
-    transition: 0.5s ease-out;
+    transition: 0.4s ease-out;
 
     &:hover {
-      background-color: #FBA1B7;
-      scale: 1.2;
+      background-color: #ff668c;
+      scale: 1.3;
       margin: 0 20px;
-      transition: 0.5s ease-out;
     }
 
+    &:active {
+      background-color: #ff90ac;
+      scale: 1;
+      margin: 0 20px;
+      transition: 0.07s ease-out;
+    }
   `
 
 
@@ -47,7 +55,15 @@ function Button(props) {
     <ButtonBox>
       {artistData.map(artist => {
         return (
-          <ArtistBtn key={artist.id} value={artist.name} onClick={(e) => { select(e.target.value) }}>{artist.name}</ArtistBtn>
+          <ArtistBtn
+            key={artist.id}
+            value={artist.name}
+            onClick={(e) => { select(e.target.value) }}
+            $boxcolor={selected[artist.name] ? "#ff90ac" : "#0c1b4b"}
+            $textcolor={selected[artist.name] ? "#0c1b4b" : "#ffffff"}
+          >
+            {artist.name}
+          </ArtistBtn>
         )
       })}
     </ButtonBox>

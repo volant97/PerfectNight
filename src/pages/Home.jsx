@@ -12,7 +12,7 @@ const HomeBox = styled.div`
   justify-content: center;
   align-items: center;
 
-  width: 1000px;
+  width: 900px;
 `
 
 
@@ -29,9 +29,8 @@ function Home() {
     홍은채: false,
   })
   const [btnClicked, setBtnClicked] = useState("김채원")
-  const [writedTo, setWritedTo] = useState(btnClicked); //artistData[2].name
+  const [writedTo, setWritedTo] = useState(btnClicked);
 
-  // console.log("btnClicked : " + btnClicked)
 
 
   useEffect(() => {
@@ -67,7 +66,8 @@ function Home() {
         btnClicked={btnClicked}
         setBtnClicked={setBtnClicked}
         writedTo={writedTo}
-        setWritedTo={setWritedTo} />
+        setWritedTo={setWritedTo}
+        navigate={navigate} />
 
       <button onClick={() => { navigate("/letter") }}>이동</button>
     </HomeBox>

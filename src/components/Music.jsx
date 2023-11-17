@@ -114,7 +114,7 @@ const MusicCSS = styled.div`
   }
 `
 
-const defaultVolume = 0.25
+const defaultVolume = 0.2
 
 window.onload = function () {
   let musicPlayItems = document.querySelectorAll(".music-play-item")
@@ -128,8 +128,9 @@ window.onload = function () {
   musicPlayItems.forEach(function (item) {
     item.audio = item.querySelector("audio")
     if (item.audio.volume === defaultVolume) {
-      item.audio.play()
-      // item.audio.pause()
+      // 자동 재생 여부 설정
+      // item.audio.play()
+      item.audio.pause()
     }
 
     upBtn.addEventListener("click", function () {
