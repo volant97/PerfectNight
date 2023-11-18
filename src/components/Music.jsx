@@ -129,8 +129,8 @@ window.onload = function () {
     item.audio = item.querySelector("audio")
     if (item.audio.volume === defaultVolume) {
       // 자동 재생 여부 설정
-      // item.audio.play()
-      item.audio.pause()
+      item.audio.play()
+      // item.audio.pause()
     }
 
     upBtn.addEventListener("click", function () {

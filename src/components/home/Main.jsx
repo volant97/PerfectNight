@@ -118,6 +118,15 @@ function Main(props) {
   // }
 
 
+  const allFalse = {
+    허윤진: false,
+    사쿠라: false,
+    김채원: false,
+    카즈하: false,
+    홍은채: false,
+  }
+
+
   return (
     <MainOutLine>
       <CreateBox
@@ -137,6 +146,7 @@ function Main(props) {
             setLetters([newLetters, ...letters]);
             setNickname("")
             setContent("")
+            setSelected({ ...allFalse, [writedTo]: true })
           }
         }}>
         <div>
@@ -171,35 +181,40 @@ function Main(props) {
       </CreateBox>
 
       <LetterBox>
-        {letters.filter(lett => {
-          return selected[lett.writedTo]
-        }).map(letter => {
-          return (
-            <Link
-              className='letter-card'
-              key={letter.id}
-              // onClick={() => cardClickHandler(letter.id)}
-              to={`/letter/${letter.id}`}
-              state={{
-                nickname: letter.nickname,
-                content: letter.content,
-                createdAt: letter.createdAt,
-                writedTo: letter.writedTo,
-              }}
-            >
-              <div className='letter-card-left'>
-                <img src={userProfile}></img>
-              </div>
-              <div className='letter-card-right'>
-                <h3>{letter.nickname}</h3>
-                <p className='letter-card-content'>{letter.content}</p>
-                <p>{letter.createdAt}</p>
-                <p>{letter.writedTo}</p>
-              </div>
-            </Link>
-          )
-        })
+        {letters.length === 0 ?
+          (<h1>응원 메시지가 없어요. 첫 응원 메시지를 남겨주세요!</h1>)
+          : (
+            letters.filter(lett => {
+              return selected[lett.writedTo]
+            }).map(letter => {
+              return (
+                <Link
+                  className='letter-card'
+                  key={letter.id}
+                  // onClick={() => cardClickHandler(letter.id)}
+                  to={`/letter/${letter.id}`}
+                  state={{
+                    // nickname: letter.nickname,
+                    content: letter.content,
+                    // createdAt: letter.createdAt,
+                    // writedTo: letter.writedTo,
+                  }}
+                >
+                  <div className='letter-card-left'>
+                    <img src={userProfile}></img>
+                  </div>
+                  <div className='letter-card-right'>
+                    <h3>{letter.nickname}</h3>
+                    <p className='letter-card-content'>{letter.content}</p>
+                    <p>{letter.createdAt}</p>
+                    <p>{letter.writedTo}</p>
+                  </div>
+                </Link>
+              )
+            }
+            ))
         }
+
       </LetterBox>
 
     </MainOutLine >
