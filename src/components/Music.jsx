@@ -114,7 +114,7 @@ const MusicCSS = styled.div`
   }
 `
 
-const defaultVolume = 0.2
+const defaultVolume = 0.25
 
 window.onload = function () {
   let musicPlayItems = document.querySelectorAll(".music-play-item")
