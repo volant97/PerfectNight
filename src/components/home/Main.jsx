@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from "styled-components";
-import BorderCheck from 'components/BorderCheck';
 import userProfile from "assets/user-profile-64.png"
+import { Link, useParams } from 'react-router-dom';
 import uuid from 'react-uuid';
 
 const MainOutLine = styled.div`
@@ -50,6 +50,16 @@ const LetterBox = styled.ul`
     padding: 20px;
     border-radius: 20px;
     border: 3px solid #FBA1B7;
+
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s ease;
+    color: black;
+
+    &:hover {
+      transform: scale(1.02);
+      background-color: #ffdde5;
+  }
   }
 
   .letter-card-left {
@@ -88,11 +98,10 @@ const LetterBox = styled.ul`
 
 
 function Main(props) {
-  const { artistData, dummyData, selected, setSelected, btnClicked, setBtnClicked, writedTo, setWritedTo, navigate } = props;
+  const { artistData, dummyData, selected, setSelected, btnClicked, setBtnClicked, writedTo, setWritedTo, navigate, letters, setLetters } = props;
 
   const [nickname, setNickname] = useState("");
   const [content, setContent] = useState("");
-  const [letters, setLetters] = useState(dummyData)
 
 
 
@@ -104,9 +113,9 @@ function Main(props) {
 
 
 
-  const cardClickHandler = (id) => {
-    navigate(`/letter${id}`)
-  }
+  // const cardClickHandler = (id) => {
+  //   navigate(`/letter${id}`)
+  // }
 
 
   return (
@@ -166,7 +175,18 @@ function Main(props) {
           return selected[lett.writedTo]
         }).map(letter => {
           return (
-            <li className='letter-card' key={letter.id} onClick={() => cardClickHandler(letter.id)} >
+            <Link
+              className='letter-card'
+              key={letter.id}
+              // onClick={() => cardClickHandler(letter.id)}
+              to={`/letter/${letter.id}`}
+              state={{
+                nickname: letter.nickname,
+                content: letter.content,
+                createdAt: letter.createdAt,
+                writedTo: letter.writedTo,
+              }}
+            >
               <div className='letter-card-left'>
                 <img src={userProfile}></img>
               </div>
@@ -176,7 +196,7 @@ function Main(props) {
                 <p>{letter.createdAt}</p>
                 <p>{letter.writedTo}</p>
               </div>
-            </li>
+            </Link>
           )
         })
         }

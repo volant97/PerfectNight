@@ -17,10 +17,10 @@ const HomeBox = styled.div`
 
 
 
-function Home() {
+function Home(props) {
+  const { artistData, dummyData, letters, setLetters } = props
   const navigate = useNavigate();
-  const [artistData, setArtistData] = useState([]);
-  const [dummyData, setDummyData] = useState([]);
+
   const [selected, setSelected] = useState({
     허윤진: false,
     사쿠라: false,
@@ -30,19 +30,6 @@ function Home() {
   })
   const [btnClicked, setBtnClicked] = useState("김채원")
   const [writedTo, setWritedTo] = useState(btnClicked);
-
-
-
-  useEffect(() => {
-    const jsonData = require("fakeData");
-    setArtistData([...jsonData.artist]);
-    setDummyData([...jsonData.dummy]);
-  }, [])
-
-  if (artistData.length <= 0 || dummyData.length <= 0) {
-    return <div>데이터를 가져오는 중...</div>
-  }
-
 
 
 
@@ -67,7 +54,9 @@ function Home() {
         setBtnClicked={setBtnClicked}
         writedTo={writedTo}
         setWritedTo={setWritedTo}
-        navigate={navigate} />
+        navigate={navigate}
+        letters={letters}
+        setLetters={setLetters} />
 
       <button onClick={() => { navigate("/letter") }}>이동</button>
     </HomeBox>
