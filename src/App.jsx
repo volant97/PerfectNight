@@ -4,6 +4,7 @@ import Reset from 'Reset';
 import styled from "styled-components";
 import Music from 'components/Music';
 
+
 const AppBox = styled.div`
   display: flex;
   align-items: center;
@@ -23,7 +24,6 @@ function App() {
   if (artistData.length <= 0 || dummyData.length <= 0) {
     return <div>데이터를 가져오는 중...</div>
   }
-
 
   return (
     <>

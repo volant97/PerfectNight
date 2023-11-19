@@ -5,23 +5,30 @@ const ButtonBox = styled.div`
     display: flex;
     flex-direction: row;
     gap: 10px;
+    position: relative;
+    top: 4%;
   `
 
 const ArtistBtn = styled.button`
+    font-family: 'KCCMurukmuruk';
+    font-size: 16px;
     background: transparent;
     background-color: ${props => props.$boxcolor};
     color: ${props => props.$textcolor};
     width: 100px;
     height: 40px;
     border: 1px solid rgb(256, 256, 256, 0.7);
-    box-shadow: 0px 2px 10px #505050;
+    box-shadow: 0px 3px 5px #000000;
+    box-shadow: 0px 5px 5px #000000;
     border-radius: 20px;
     transition: 0.4s ease-out;
-
+    margin: 0 30px;
+    cursor: pointer;
+   
     &:hover {
       background-color: #ff668c;
       scale: 1.3;
-      margin: 0 20px;
+      margin: 0 40px;
     }
 
     &:active {

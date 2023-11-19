@@ -4,6 +4,7 @@ import Audio1 from "assets/PerfectNight.mp3";
 import LESSERAFIM1 from 'assets/르세라핌1.webp';
 
 const MusicCSS = styled.div`
+  font-family: 'KCCChassam';
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -22,6 +23,7 @@ const MusicCSS = styled.div`
   .music-play-item * {
     transition: opacity 120ms;
     transition: scale 120ms;
+    transition: 0.4s ease-out;
   }
 
   .music-play-item:hover * {
@@ -109,6 +111,10 @@ const MusicCSS = styled.div`
     scale: 1.2;
   }
 
+  .upBtn, .downBtn {
+    display: none;
+  }
+
   audio {
     display: none;
   }
@@ -127,11 +133,12 @@ window.onload = function () {
 
   musicPlayItems.forEach(function (item) {
     item.audio = item.querySelector("audio")
-    if (item.audio.volume === defaultVolume) {
-      // 자동 재생 여부 설정
-      item.audio.play()
-      // item.audio.pause()
-    }
+
+    // if (item.audio.volume === defaultVolume) {
+    //   // 자동 재생 여부 설정
+    //   item.audio.play()
+    //   // item.audio.pause()
+    // }
 
     upBtn.addEventListener("click", function () {
       if (item.audio.volume < 0.94) {
@@ -154,20 +161,21 @@ window.onload = function () {
     item.addEventListener("click", function () {
       let nowTime = item.audio.currentTime
       if (this.isPlaying) {
-        palyBox.innerHTML = "🎧"
-        upBtn.style.display = "block"
-        downBtn.style.display = "block"
-        item.audio.play()
-      } else {
         palyBox.innerHTML = "⏸"
         upBtn.style.display = "none"
         downBtn.style.display = "none"
         item.audio.pause()
         item.audio.currentTime = nowTime
-      }
+      } else {
+        palyBox.innerHTML = "🎧"
+        upBtn.style.display = "block"
+        downBtn.style.display = "block"
+        item.audio.play()
 
+      }
       item.isPlaying = !item.isPlaying
     })
+
   })
 }
 
@@ -191,10 +199,10 @@ function Music() {
               </strong>
             </div>
             <div className='paly-box'>
-              <p className='paly-pause'>Click To<br />PAUSE</p>
+              <p className='paly-pause'>Click To<br />Play</p>
             </div>
           </div>
-          {/* controls muted autoPlay*/}
+          {/* muted autoPlay*/}
           <audio className="music-audio" src={Audio1} type='audio.mp3' onLoadStart={e => e.target.volume = defaultVolume} controls loop />
         </div>
       </li>

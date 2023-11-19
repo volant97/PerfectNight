@@ -11,19 +11,113 @@ const MainOutLine = styled.div`
   align-items: center;
 
   width: 100%;
-  /* border: 2px solid black; */
 `
 
 const CreateBox = styled.form`
+  font-family: 'KCCChassam';
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 13px;
 
-  width: 100%;
+  width: 450px;
   height: 180px;
-  border: 2px solid black;
+  margin-top: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  /* border: 3px solid #0c1b4b; */
+  background-color: #1f316d;
+  color: white;
+  box-shadow: 0 3px 9px #1f316d;
+
+  .nickname-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+
+    h3 {
+      width: 20%;
+    }
+
+    input {
+      font-family: 'KCCChassam';
+      width: 100%;
+      height: 20px;
+      border-radius: 5px;
+      border: none;
+      padding: 5px;
+      outline: none;
+    }
+  }
+  .content-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 15px;
+    width: 100%;
+
+    h3 {
+      width: 20%;
+      margin-top: 3px;
+    }
+
+    textarea {
+      font-family: 'KCCChassam';
+      width: 100%;
+      height: 50px;
+      resize: none;
+      border-radius: 5px;
+      border: none;
+      padding: 5px;
+      outline: none;
+    }
+
+  }
+  .select-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    
+    select {
+      font-family: 'KCCChassam';
+      text-align: center;
+      width: 100px;
+      height: 23px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+
+  .submit-btn {
+    font-family: 'KCCChassam';
+    background: transparent;
+    width: 100px;
+    height: 27px;
+    border: 2px solid white;
+    border-radius: 7px;
+    color: white;
+    transition: 0.4s ease-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ff668c;
+      scale: 1.2;
+    }
+
+    &:active {
+      background-color: #ff90ac;
+      scale: 1;
+      transition: 0.05s ease-out;
+    }
+  }
 `
 
 const LetterBox = styled.ul`
@@ -34,11 +128,11 @@ const LetterBox = styled.ul`
   gap: 20px;
 
   width: 100%;
-  height: 100%;
+  min-height: 500px;
   padding: 20px 0 ;
-  border: 2px solid black;
 
   .letter-card {
+    font-family: 'KCCChassam';
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -55,10 +149,11 @@ const LetterBox = styled.ul`
     text-decoration: none;
     transition: 0.3s ease;
     color: black;
+    box-shadow: 0 3px 9px #FBA1B7;
 
     &:hover {
-      transform: scale(1.02);
-      background-color: #ffdde5;
+      transform: scale(1.05);
+      background-color: #ffd8e1;
   }
   }
 
@@ -68,18 +163,30 @@ const LetterBox = styled.ul`
     align-items: center;
 
     border-radius: 50%;
-    /* border: 2px solid black; */
   }
 
   .letter-card-right {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 10px;
+    gap: 20px;
 
     width: 100%;
     height: 100%;
-    /* border: 2px solid black; */
+
+    h3 {
+      font-family: 'KCCMurukmuruk';
+      font-size: 22px;
+    }
+
+    h4 {
+      font-size: 17px;
+      padding-top: 2px;
+    }
+
+    p {
+      font-size: 12px;
+    }
   }
 
   .letter-card-content {
@@ -113,11 +220,6 @@ function Main(props) {
 
 
 
-  // const cardClickHandler = (id) => {
-  //   navigate(`/letter${id}`)
-  // }
-
-
   const allFalse = {
     허윤진: false,
     사쿠라: false,
@@ -138,7 +240,7 @@ function Main(props) {
             content,
             createdAt: new Date().toLocaleString(),
             writedTo,
-            avatar: "사진"
+            avatar: userProfile,
           };
           if (nickname.length <= 0 || content.length <= 0) {
             alert("닉네임과 내용을 모두 입력해주세요💌")
@@ -149,7 +251,7 @@ function Main(props) {
             setSelected({ ...allFalse, [writedTo]: true })
           }
         }}>
-        <div>
+        <div className='nickname-box'>
           <h3>닉네임</h3>
           <input
             type='text'
@@ -158,17 +260,17 @@ function Main(props) {
             onChange={event => { setNickname(event.target.value) }}
           />
         </div>
-        <div>
+        <div className='content-box'>
           <h3>내용</h3>
-          <input
+          <textarea
             type='text'
             placeholder='최대 100글자까지 작성할 수 있습니다.'
             value={content}
             onChange={event => { setContent(event.target.value) }}
           />
         </div>
-        <div>
-          <h3>누구에게 보내실 건가요?</h3>
+        <div className='select-box'>
+          <h3>누구를 응원하실 건가요?</h3>
           <select
             value={writedTo}
             onChange={event => {
@@ -176,7 +278,7 @@ function Main(props) {
             }}>
             {artistData.map((item) => <option key={item.id} value={item.name}>{item.name}</option>)}
           </select>
-          <button type="submit">팬레터 등록</button>
+          <button className='submit-btn' type="submit">팬레터 등록</button>
         </div>
       </CreateBox>
 
@@ -191,13 +293,9 @@ function Main(props) {
                 <Link
                   className='letter-card'
                   key={letter.id}
-                  // onClick={() => cardClickHandler(letter.id)}
                   to={`/letter/${letter.id}`}
                   state={{
-                    // nickname: letter.nickname,
                     content: letter.content,
-                    // createdAt: letter.createdAt,
-                    // writedTo: letter.writedTo,
                   }}
                 >
                   <div className='letter-card-left'>
@@ -205,9 +303,8 @@ function Main(props) {
                   </div>
                   <div className='letter-card-right'>
                     <h3>{letter.nickname}</h3>
-                    <p className='letter-card-content'>{letter.content}</p>
+                    <h4 className='letter-card-content'>{letter.content}</h4>
                     <p>{letter.createdAt}</p>
-                    <p>{letter.writedTo}</p>
                   </div>
                 </Link>
               )
