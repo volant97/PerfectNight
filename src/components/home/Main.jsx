@@ -9,7 +9,6 @@ const MainOutLine = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   width: 100%;
 `
 
@@ -26,7 +25,6 @@ const CreateBox = styled.form`
   margin-top: 20px;
   padding: 10px 20px;
   border-radius: 10px;
-  /* border: 3px solid #0c1b4b; */
   background-color: #1f316d;
   color: white;
   box-shadow: 0 3px 9px #1f316d;
@@ -198,6 +196,16 @@ const LetterBox = styled.ul`
     width: 100%;
     max-height: 120px;
   }
+
+  h1 {
+    font-family: 'KCCMurukmuruk';
+    font-size: 18px;
+    margin-top: 12px;
+
+    span {
+      color: #ff6d92;
+    }
+  }
 `
 
 
@@ -227,6 +235,7 @@ function Main(props) {
     카즈하: false,
     홍은채: false,
   }
+
 
 
   return (
@@ -278,13 +287,15 @@ function Main(props) {
             }}>
             {artistData.map((item) => <option key={item.id} value={item.name}>{item.name}</option>)}
           </select>
-          <button className='submit-btn' type="submit">팬레터 등록</button>
+          <button className='submit-btn' type="submit">응원 보내기</button>
         </div>
       </CreateBox>
 
       <LetterBox>
-        {letters.length === 0 ?
-          (<h1>응원 메시지가 없어요. 첫 응원 메시지를 남겨주세요!</h1>)
+        {letters.filter(lett => {
+          return selected[lett.writedTo]
+        }).length === 0 ?
+          (<h1><span>{btnClicked}</span>의 응원 메시지가 없어요. 첫 응원 메시지를 남겨주세요!</h1>)
           : (
             letters.filter(lett => {
               return selected[lett.writedTo]
