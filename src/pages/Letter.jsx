@@ -196,22 +196,6 @@ function Letter(props) {
   return (
     <>
       {isEditing ? (
-        // <>
-        //   <DetailedLetter>
-        //     <h3>{filtered.nickname}</h3>
-        //     <form>
-        //       <textarea className='letter-card-content' ref={contentRef} value={editedMessage} onChange={e => editedTypeHandler(e.target.value)}>{filtered.content}</textarea>
-        //     </form>
-        //     <p>{filtered.createdAt}</p>
-        //     <p>{filtered.writedTo}</p>
-        //   </DetailedLetter>
-        //   <div>
-        //     <button onClick={editHandler}>수정</button>
-        //     <button type="submit" onClick={editedAddHandler} >수정완료</button>
-        //     <button onClick={deleteLetterHandler}>삭제</button>
-        //     <button onClick={() => { navigate("/") }}>Home</button>
-        //   </div>
-        // </>
         <>
           <DetailedLetter>
             <div className='top-box'>
