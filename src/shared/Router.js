@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Home from "pages/Home";
 import Letter from "pages/Letter";
+import { LetterContext } from "context/letter.context";
 
-const Router = (props) => {
-  const { artistData, dummyData } = props
+const Router = () => {
+  const { artistData, dummyData } = useContext(LetterContext)
 
   const [letters, setLetters] = useState(dummyData)
 
