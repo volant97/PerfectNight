@@ -39,9 +39,8 @@ const ArtistBtn = styled.button`
     }
   `
 
-
 function Button(props) {
-  const { artistData, selected, setSelected, btnClicked, setBtnClicked, writedTo, setWritedTo } = props;
+  const { artistData, selected, setSelected, setBtnClicked, setWritedTo } = props;
 
   const allFalse = {
     허윤진: false,
@@ -56,7 +55,6 @@ function Button(props) {
     setBtnClicked(selectedName)
     setWritedTo(selectedName)
   }
-
 
   return (
     <ButtonBox>

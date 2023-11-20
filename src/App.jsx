@@ -4,7 +4,6 @@ import Reset from 'Reset';
 import styled from "styled-components";
 import Music from 'components/Music';
 
-
 const AppBox = styled.div`
   display: flex;
   align-items: center;

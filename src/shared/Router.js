@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import Home from "pages/Home";
 import Letter from "pages/Letter";
 
-
 const Router = (props) => {
   const { artistData, dummyData } = props
 
@@ -19,13 +18,11 @@ const Router = (props) => {
   const [btnClicked, setBtnClicked] = useState("김채원")
   const [writedTo, setWritedTo] = useState(btnClicked);
 
-
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home
           artistData={artistData}
-          dummyData={dummyData}
           letters={letters}
           setLetters={setLetters}
           selected={selected}

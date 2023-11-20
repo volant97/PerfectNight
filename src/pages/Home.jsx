@@ -4,8 +4,6 @@ import styled from "styled-components";
 import Header from "components/home/Header";
 import Main from "components/home/Main";
 
-
-
 const HomeBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -15,18 +13,13 @@ const HomeBox = styled.div`
   width: 900px;
 `
 
-
-
 function Home(props) {
-  const { artistData, dummyData, letters, setLetters, selected, setSelected, btnClicked, setBtnClicked, writedTo, setWritedTo } = props
-  const navigate = useNavigate();
-
+  const { artistData, letters, setLetters, selected, setSelected, btnClicked, setBtnClicked, writedTo, setWritedTo } = props
 
   return (
     <HomeBox>
       <Header
         artistData={artistData}
-        dummyData={dummyData}
         selected={selected}
         setSelected={setSelected}
         btnClicked={btnClicked}
@@ -35,14 +28,11 @@ function Home(props) {
         setWritedTo={setWritedTo} />
       <Main
         artistData={artistData}
-        dummyData={dummyData}
         selected={selected}
         setSelected={setSelected}
         btnClicked={btnClicked}
-        setBtnClicked={setBtnClicked}
         writedTo={writedTo}
         setWritedTo={setWritedTo}
-        navigate={navigate}
         letters={letters}
         setLetters={setLetters} />
     </HomeBox>

@@ -68,7 +68,7 @@ const HeaderOutLine = styled.div`
 `
 
 function Header(props) {
-  const { artistData, dummyData, selected, setSelected, btnClicked, setBtnClicked, writedTo, setWritedTo } = props;
+  const { artistData, selected, setSelected, btnClicked, setBtnClicked, writedTo, setWritedTo } = props;
 
   return (
     <HeaderOutLine>
@@ -79,9 +79,7 @@ function Header(props) {
         artistData={artistData}
         selected={selected}
         setSelected={setSelected}
-        btnClicked={btnClicked}
         setBtnClicked={setBtnClicked}
-        writedTo={writedTo}
         setWritedTo={setWritedTo} />
     </HeaderOutLine>
   )
