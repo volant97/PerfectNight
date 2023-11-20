@@ -129,11 +129,10 @@ window.onload = function () {
   const upBtn = document.querySelector(".upBtn")
   const downBtn = document.querySelector(".downBtn")
 
-
-
   musicPlayItems.forEach(function (item) {
     item.audio = item.querySelector("audio")
 
+    // 크롬 정책상 자동새쟁 설정시 오류 발생
     // if (item.audio.volume === defaultVolume) {
     //   // 자동 재생 여부 설정
     //   item.audio.play()
@@ -175,10 +174,8 @@ window.onload = function () {
       }
       item.isPlaying = !item.isPlaying
     })
-
   })
 }
-
 
 function Music() {
   return (
@@ -202,7 +199,6 @@ function Music() {
               <p className='paly-pause'>Click To<br />Play</p>
             </div>
           </div>
-          {/* muted autoPlay*/}
           <audio className="music-audio" src={Audio1} type='audio.mp3' onLoadStart={e => e.target.volume = defaultVolume} controls loop />
         </div>
       </li>

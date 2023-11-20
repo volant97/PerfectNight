@@ -208,25 +208,17 @@ const LetterBox = styled.ul`
   }
 `
 
-
-
-
-
 function Main(props) {
-  const { artistData, dummyData, selected, setSelected, btnClicked, setBtnClicked, writedTo, setWritedTo, navigate, letters, setLetters } = props;
+  const { artistData, selected, setSelected, btnClicked, writedTo, setWritedTo, letters, setLetters } = props;
 
   const [nickname, setNickname] = useState("");
   const [content, setContent] = useState("");
-
-
 
   if (nickname.length > 20) {
     alert("닉네임은 20글자 이하로 작성해주세요😉")
   } else if (content.length > 100) {
     alert("내용은 100글자 이하로 작성해주세요😲")
   }
-
-
 
   const allFalse = {
     허윤진: false,
@@ -235,8 +227,6 @@ function Main(props) {
     카즈하: false,
     홍은채: false,
   }
-
-
 
   return (
     <MainOutLine>
@@ -290,7 +280,6 @@ function Main(props) {
           <button className='submit-btn' type="submit">응원 보내기</button>
         </div>
       </CreateBox>
-
       <LetterBox>
         {letters.filter(lett => {
           return selected[lett.writedTo]
@@ -322,9 +311,7 @@ function Main(props) {
             }
             ))
         }
-
       </LetterBox>
-
     </MainOutLine >
   )
 }

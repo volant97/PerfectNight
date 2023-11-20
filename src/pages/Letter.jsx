@@ -20,7 +20,6 @@ const DetailedLetter = styled.div`
   transition: 0.3s ease;
   color: black;
   box-shadow: 0 3px 9px #FBA1B7;
-  /* background-color: #ffd8e1; */
 
   .top-box {
     display: flex;
@@ -129,8 +128,6 @@ const DetailedBtn = styled.button`
     transition: 0.05s ease-out;
   }
 `
-
-
 
 function Letter(props) {
   const { letters, setLetters } = props
