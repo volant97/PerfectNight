@@ -39,6 +39,7 @@
   - 닉네임, 내용 유효성 검사
   - 메시지 작성 및 저장
   - slect를 다른 멤버로 설정 후 응원 메시지를 보내면 자동으로 해당 멤버 메시지를 볼 수 있도록 이동
+- 응원 메시지가 없으면, 멤버별 "첫 응원 메시지를 남겨주세요!" 문구 출력
 - 각 요소 입체감을 주기위해서 그림자 적용
 
 # Letter page
@@ -49,3 +50,32 @@
 - 수정 내용이 없으면 페이지 그대로 유지
 
 # 페이지 구현 스크린샷
+## Home page
+### 초기화면
+![Screenshot1](/src/assets/Screenshot/Screenshot1.jpg)
+
+### Header 버튼 선택
+![Screenshot2](/src/assets/Screenshot/Screenshot2.jpg)
+
+### Header 버튼 선택 시 멤버 하이라이트
+![Screenshot3](/src/assets/Screenshot/Screenshot3.jpg)
+
+### 응원 메시지 작성 후
+![Screenshot4](/src/assets/Screenshot/Screenshot4.jpg)
+
+## Letter page
+### 초기화면
+![Screenshot5](/src/assets/Screenshot/Screenshot5.jpg)
+
+### 수정 모드
+![Screenshot6](/src/assets/Screenshot/Screenshot6.jpg)
+
+## 음악 플레이어
+### 초기화면
+![Screenshot7](/src/assets/Screenshot/Screenshot7.jpg)
+
+### paly
+![Screenshot8](/src/assets/Screenshot/Screenshot8.jpg)
+
+### pause
+![Screenshot9](/src/assets/Screenshot/Screenshot9.jpg)
