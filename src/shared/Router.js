@@ -19,7 +19,7 @@ const Router = (props) => {
   const [writedTo, setWritedTo] = useState(btnClicked);
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Routes>
         <Route path="/" element={<Home
           artistData={artistData}
