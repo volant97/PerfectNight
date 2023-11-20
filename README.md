@@ -50,12 +50,32 @@
 - 수정 내용이 없으면 페이지 그대로 유지
 
 # 페이지 구현 스크린샷
+## Home page
+### 초기화면
 ![Screenshot1](/src/assets/Screenshot/Screenshot1.jpg)
+
+### Header 버튼 선택
 ![Screenshot2](/src/assets/Screenshot/Screenshot2.jpg)
+
+### Header 버튼 선택 시 멤버 하이라이트
 ![Screenshot3](/src/assets/Screenshot/Screenshot3.jpg)
+
+### 응원 메시지 작성 후
 ![Screenshot4](/src/assets/Screenshot/Screenshot4.jpg)
+
+## Letter page
+### 초기화면
 ![Screenshot5](/src/assets/Screenshot/Screenshot5.jpg)
+
+### 수정 모드
 ![Screenshot6](/src/assets/Screenshot/Screenshot6.jpg)
+
+## 음악 플레이어
+### 초기화면
 ![Screenshot7](/src/assets/Screenshot/Screenshot7.jpg)
+
+### paly
 ![Screenshot8](/src/assets/Screenshot/Screenshot8.jpg)
+
+### pause
 ![Screenshot9](/src/assets/Screenshot/Screenshot9.jpg)
